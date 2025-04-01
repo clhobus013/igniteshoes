@@ -20,8 +20,6 @@ export function Routes() {
       const response = event.getNotification();
 
       setNotification(response);
-
-      console.log(response);
     }
 
     OneSignal.Notifications.addEventListener("foregroundWillDisplay", handleNotification);
@@ -34,7 +32,7 @@ export function Routes() {
       <AppRoutes />
       {
         notification?.title && (
-          <Notification title={notification?.title} onClose={() => setNotification(undefined)} />
+          <Notification data={notification} onClose={() => setNotification(undefined)} />
         )
       }
     </NavigationContainer>
